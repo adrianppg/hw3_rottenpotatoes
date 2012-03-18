@@ -2,7 +2,8 @@
 
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
-    assert_not_nil Movie.find_by_title movie[:title]
+#   assert_not_nil Movie.find_by_title movie[:title]
+    page.has_content?(movie[:id])
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
   end
