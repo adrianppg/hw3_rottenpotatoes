@@ -3,7 +3,7 @@
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
 #   assert_not_nil Movie.find_by_title movie[:title]
-    page.has_content?(movie[:id])
+    page.has_content?(movie[:title])
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
   end
@@ -30,5 +30,6 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
-  visit "http://high-rain-8756.herokuapp.com/"
+#visit "http://high-rain-8756.herokuapp.com/"
+  visit "http://localhost"
 end
