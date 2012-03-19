@@ -1,8 +1,8 @@
-debugger
+#debugger
 # Add a declarative step here for populating the DB with movies.
 
 Given /the following movies exist/ do |movies_table|
-debugger
+#debugger
   movies_table.hashes.each do |movie|
 #   assert_not_nil Movie.find_by_title movie[:title]
     page.has_content?(movie[:title])
@@ -18,7 +18,7 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
-  assert false, "Unimplmemented"
+  page.body.match("#{Regexp.escape(e1)}.*#{Regexp.escape(e2)}")
 end
 
 # Make it easier to express checking or unchecking several boxes at once
@@ -34,4 +34,12 @@ end
 Given /^(?:|I )am on (.+)$/ do |page_name|
 #visit "http://high-rain-8756.herokuapp.com/"
   visit "http://localhost"
+end
+
+Then /I should see movies sorted by (.*)/ do |sort_by_key|
+  moviesList = Movie.order(sort_key)
+  moviesList.each do |movie_ordered_key|
+  moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
+    step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
+  end
 end
