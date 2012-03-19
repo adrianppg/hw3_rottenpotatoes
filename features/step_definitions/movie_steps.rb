@@ -42,3 +42,7 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
     step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
   end
 end
+
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
