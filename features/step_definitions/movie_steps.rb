@@ -31,6 +31,10 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
 end
 
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
 #visit "http://high-rain-8756.herokuapp.com/"
   visit "http://localhost"
@@ -41,9 +45,4 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
     step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
   end
-end
-
-When /^(?:|I )follow "([^"]*)"$/ do |link|
-  debugger
-  click_link(link)
 end
