@@ -44,5 +44,6 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
+  debugger
   click_link(link)
 end
