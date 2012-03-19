@@ -23,6 +23,7 @@ Given the following movies exist:
 
 Scenario: sort movies alphabetically
 Given I am on the RottenPotatoes home page
+debugger
 When I follow "title_header"
 Then I should see movies sorted by "title" 
 
