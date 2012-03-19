@@ -2,6 +2,7 @@ debugger
 # Add a declarative step here for populating the DB with movies.
 
 Given /the following movies exist/ do |movies_table|
+debugger
   movies_table.hashes.each do |movie|
 #   assert_not_nil Movie.find_by_title movie[:title]
     page.has_content?(movie[:title])
