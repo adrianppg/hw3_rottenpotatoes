@@ -38,7 +38,6 @@ end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
   moviesList = Movie.order(sort_key)
-  moviesList.each do |movie_ordered_key|
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
     step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
   end
