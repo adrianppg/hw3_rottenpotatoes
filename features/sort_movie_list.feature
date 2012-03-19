@@ -22,7 +22,6 @@ Given the following movies exist:
  And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-Given I am on the RottenPotatoes home page
 When I follow "title_header"
 Then I should see movies sorted by "title" 
 
