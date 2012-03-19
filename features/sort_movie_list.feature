@@ -23,7 +23,7 @@ Given the following movies exist:
 
 Scenario: sort movies alphabetically
 Given I am on the RottenPotatoes home page
-When I follow title_header
+When I follow "title_header"
 Then I should see movies sorted by "title" 
 
 Scenario: sort movies in increasing order of release date
