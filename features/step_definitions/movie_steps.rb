@@ -26,7 +26,7 @@ end
 #  "When I check the following ratings: G"
 
 When /I check all ratings/ do
-  step "I check the following ratings: " + Movie.all_ratings.to_s
+  step "I check the following ratings: " + Movie.all_ratings.dump
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
@@ -68,5 +68,13 @@ When /^(?:|I )check "([^"]*)"$/ do |field|
 end
 
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+  uncheck(field)
+end
+
+When /^I check "([^"]*)" checkbox$/ do |field|
+  check(field)
+end
+
+When /^I uncheck "([^"]*)" checkbox$/ do |field|
   uncheck(field)
 end
