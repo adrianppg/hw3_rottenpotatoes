@@ -30,6 +30,8 @@ peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 joderse = Movie.all_ratings.to_s
 joderse[/[((,".")\)(,".")*]/]
 puts joderse
+x = 'this is a test'
+puts x[/[aeiou].+?[aeiou]/]    # => 'is i'
 puts Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #  step "I check the following ratings: " + Movie.all_ratings.to_s
