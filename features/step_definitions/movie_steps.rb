@@ -29,6 +29,7 @@ When /I check all ratings/ do
 peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #  step "I check the following ratings: " + Movie.all_ratings.to_s
+  puts %Q{I check the following ratings: #{peneliculas}}
   step %Q{I check the following ratings: #{peneliculas}}
 end
 
