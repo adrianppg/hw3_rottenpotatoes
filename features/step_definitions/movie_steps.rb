@@ -42,8 +42,8 @@ click_link(page.find_by_id(link))
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
-visit "http://high-rain-8756.herokuapp.com/movies"
-#  visit "http://localhost"
+#visit "http://high-rain-8756.herokuapp.com/movies"
+  visit "http://localhost"
 end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
