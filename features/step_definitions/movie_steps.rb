@@ -33,6 +33,8 @@ puts peneliculas.class
 puts /[^((, \[\] ".")\)(,".")*]/ =~ Movie.all_ratings.to_s
   puts "joder"
   puts $1
+  puts $2
+  puts $3
   puts movida
 joderse = Movie.all_ratings.to_s
 joderse[/[((,".")\)(,".")*]/]
