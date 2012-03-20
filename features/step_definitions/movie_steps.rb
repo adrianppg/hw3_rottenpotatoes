@@ -34,7 +34,8 @@ end
 When /^(?:|I )follow "([^"]*)"$/ do |link|
 #puts link
 #  click_link(link)
-  show me the page
+#  show me the page
+  save_and_open_page
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
