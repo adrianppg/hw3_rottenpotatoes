@@ -26,13 +26,13 @@ end
 #  "When I check the following ratings: G"
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
-  # HINT: use String#split to split up the rating_list, then
-  #   iterate over the ratings and reuse the "When I check..." or
-  #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
+  rating_list.split.each |rating| do
+    step "I "+(uncheck?"un":)+"check \"#{rating.strip}\" checkbox"
+  end
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-#puts page.body
+puts page.body
 #puts "mierda"
 #click_link(page.find_by_id(link))
 #puts link
@@ -54,4 +54,12 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
 end
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+When /^(?:|I )check "([^"]*)"$/ do |field|
+  check(field)
+end
+
+When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+  uncheck(field)
 end
