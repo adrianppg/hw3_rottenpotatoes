@@ -29,7 +29,7 @@ When /I check all ratings/ do
 peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #  step "I check the following ratings: " + Movie.all_ratings.to_s
-  step "I check the following ratings: " + peneliculas
+  step "I check the following ratings: %Q{peneliculas}"
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
