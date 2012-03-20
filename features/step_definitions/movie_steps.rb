@@ -27,7 +27,7 @@ end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each |rating| do
-    step "I "+(uncheck?"un":"")+"check \"#{rating.strip}\" checkbox"
+    step "I " + uncheck? "un" : "" + "check \"#{rating.strip}\" checkbox"
   end
 end
 
