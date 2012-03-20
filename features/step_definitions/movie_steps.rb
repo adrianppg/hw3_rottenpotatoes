@@ -46,7 +46,7 @@ puts Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #  step "I check the following ratings: " + Movie.all_ratings.to_s
   puts %Q{I check the following ratings: #{peneliculas}}
-  step %Q{I check the following ratings: #{peneliculas}}
+  step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
