@@ -26,8 +26,10 @@ end
 #  "When I check the following ratings: G"
 
 When /I check all ratings/ do
-step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
+peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
+#step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 #  step "I check the following ratings: " + Movie.all_ratings.to_s
+  step "I check the following ratings: " + peneliculas
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
