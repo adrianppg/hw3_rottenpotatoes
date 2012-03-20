@@ -29,7 +29,7 @@ When /I check all ratings/ do
 peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
 peneliculas = Movie.all_ratings.to_s.match(/[((,".")\)(,".")*]/)
 peneliculas = /[((,".")\)(,".")*]/.match(Movie.all_ratings.to_s)
-puts peneliculas
+puts peneliculas.class
 joderse = Movie.all_ratings.to_s
 joderse[/[((,".")\)(,".")*]/]
 puts joderse
