@@ -32,7 +32,7 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-puts link
+#puts link
   click_link(link)
 end
 
