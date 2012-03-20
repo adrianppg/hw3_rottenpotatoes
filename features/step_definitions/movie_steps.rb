@@ -32,10 +32,11 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
+click_link(page.find_by_id(link))
 #puts link
 #  click_link(link)
 #  show me the page
-  save_and_open_page
+#save_and_open_page
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
