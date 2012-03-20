@@ -32,18 +32,18 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-puts page.body
-puts "mierda"
-click_link(page.find_by_id(link))
+#puts page.body
+#puts "mierda"
+#click_link(page.find_by_id(link))
 #puts link
-#  click_link(link)
+  click_link(link)
 #  show me the page
 #save_and_open_page
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
-#visit "http://high-rain-8756.herokuapp.com/movies"
-  visit "http://localhost/movies"
+  visit "http://high-rain-8756.herokuapp.com/movies"
+#  visit "http://localhost/movies"
 end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
