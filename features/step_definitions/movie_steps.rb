@@ -26,26 +26,6 @@ end
 #  "When I check the following ratings: G"
 
 When /I check all ratings/ do
-peneliculas = Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
-peneliculas = Movie.all_ratings.to_s.match(/[((,".")\)(,".")*]/)
-peneliculas = /[((,".")\)(,".")*]/.match(Movie.all_ratings.to_s)
-puts peneliculas.class
-puts Movie.all_ratings.to_s
-/[^((, \[\] ".")\)(,".")*]/ =~ Movie.all_ratings.to_s
-  puts $1
-  puts $2
-  puts $3
-  puts movida
-puts /[^",\[\]\s]/
-joderse = Movie.all_ratings.to_s
-joderse[/[((,".")\)(,".")*]/]
-puts joderse
-x = 'this is a test'
-puts x[/[aeiou].+?[aeiou]/]    # => 'is i'
-puts Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
-#step "I check the following ratings: " + Movie.all_ratings.to_s.split(/[((,".")\)(,".")*]/)
-#  step "I check the following ratings: " + Movie.all_ratings.to_s
-  puts %Q{I check the following ratings: #{peneliculas}}
   step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
