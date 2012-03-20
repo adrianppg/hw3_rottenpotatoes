@@ -31,7 +31,8 @@ peneliculas = Movie.all_ratings.to_s.match(/[((,".")\)(,".")*]/)
 peneliculas = /[((,".")\)(,".")*]/.match(Movie.all_ratings.to_s)
 puts peneliculas.class
 movida =~ /[^((, \[\] ".")\)(,".")*]/.match(Movie.all_ratings.to_s)
-  puts movida.to_s
+  puts $1
+  puts movida
 joderse = Movie.all_ratings.to_s
 joderse[/[((,".")\)(,".")*]/]
 puts joderse
