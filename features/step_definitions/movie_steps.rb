@@ -31,12 +31,10 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
 end
 
-When /^(?:|I )follow "([^"]*)"$/
-Then show me the page
-
 When /^(?:|I )follow "([^"]*)"$/ do |link|
 #puts link
-  click_link(link)
+#  click_link(link)
+  show me the page
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
