@@ -27,16 +27,15 @@ end
 
 When /I check all ratings/ do
 #step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
-puts page.html
-  step %Q{I check the following ratings: PG, G}
-#step %Q{I check the following ratings: #{Movie.all_ratings}}
+#step %Q{I check the following ratings: PG, G}
+step %Q{I check the following ratings: #{Movie.all_ratings}}
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
 #unchecked_string= uncheck? "un" : ""
 #step "I #{unchecked_string} check \"#{rating.strip}\" checkbox"
-    step "I " + (uncheck== true ? "un" : "") + "check \"#{rating.strip}\" checkbox"
+    step "I " + (uncheck== true ? "un" : "") + "check ratings[#{rating.strip}] checkbox"
 
   end
 end
