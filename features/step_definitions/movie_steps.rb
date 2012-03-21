@@ -24,6 +24,7 @@ When /I uncheck all ratings/ do
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
+print page.html
   rating_list.split.each do |rating| 
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
   end
@@ -112,4 +113,14 @@ Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   else
     assert page.has_no_xpath?('//*', :text => regexp)
   end
+end
+
+Then /^I should see all of the movies$/ do
+  row_number = page.all('#movies tbody tr').size
+  assert row_number == Movie.count
+end
+
+Then /^(?:|I )should see no movies$/ do
+  row_number = page.all('#movies tbody tr').size
+  assert row_number == 0
 end
