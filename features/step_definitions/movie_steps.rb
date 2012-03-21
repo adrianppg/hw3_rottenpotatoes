@@ -9,6 +9,7 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     if not Movie.find(movie[:title])
       assert false
+      exit
     end
   end
   #assert false, "Unimplmemented"
