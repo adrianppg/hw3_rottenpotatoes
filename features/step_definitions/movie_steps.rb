@@ -19,9 +19,6 @@ When /I check all ratings/ do
   step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
-# Make it easier to express checking or unchecking several boxes at once
-#  "When I uncheck the following ratings: PG, G, R"
-#  "When I check the following ratings: G"
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
@@ -40,7 +37,7 @@ end
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
   moviesList = Movie.order(sort_by_key)
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
-    step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
+    step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
   end
 end
 Then /^show me the page$/ do
@@ -65,6 +62,7 @@ end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
+print page.html
 end
 
 When /^(?:|I )show all movies/ do
