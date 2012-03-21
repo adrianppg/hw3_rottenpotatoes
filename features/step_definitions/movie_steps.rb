@@ -44,6 +44,7 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
     step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
   end
 end
+
 Then /^show me the page$/ do
   save_and_open_page
 end

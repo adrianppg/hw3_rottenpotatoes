@@ -45,7 +45,7 @@ Background: movies have been added to database
 
 Scenario: no ratings selected
   # see assignment
-  When I uncheck the following ratings: PG, G, R, PG-13
+  When I uncheck the following ratings: PG G R PG-13
   And I press "ratings_submit" 
   Then I should see no movies
 
