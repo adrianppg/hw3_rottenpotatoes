@@ -62,7 +62,6 @@ end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
-print page.html
 end
 
 When /^(?:|I )show all movies/ do
