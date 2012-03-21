@@ -24,7 +24,6 @@ When /I uncheck all ratings/ do
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
-print page.html
   rating_list.split.each do |rating| 
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
   end
