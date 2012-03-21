@@ -1,15 +1,14 @@
-#debugger
 # Add a declarative step here for populating the DB with movies.
 
 Given /the following movies exist/ do |movies_table|
-#debugger
+  #debugger
+  #assert_not_nil Movie.find_by_title movie[:title]
+  #page.has_content?(movie[:title])
+  # each returned element will be a hash whose key is the table header.
+  # you should arrange to add that movie to the database here.
   movies_table.hashes.each do |movie|
-#   assert_not_nil Movie.find_by_title movie[:title]
-#page.has_content?(movie[:title])
-    # each returned element will be a hash whose key is the table header.
-    # you should arrange to add that movie to the database here.
   end
-#assert false, "Unimplmemented"
+  #assert false, "Unimplmemented"
 end
 
 # Make sure that one string (regexp) occurs before or after another one
@@ -26,30 +25,17 @@ end
 #  "When I check the following ratings: G"
 
 When /I check all ratings/ do
-#step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
-#step %Q{I check the following ratings: PG, G}
-puts page.html
-step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
+  step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
-#unchecked_string= uncheck? "un" : ""
-#step "I #{unchecked_string} check \"#{rating.strip}\" checkbox"
-    puts "I " + (uncheck== true ? "un" : "") + "check ratings\[#{rating.strip}\] checkbox"
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
-
   end
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
-puts page.body
-#puts "mierda"
-#click_link(page.find_by_id(link))
-#puts link
   click_link(link)
-#  show me the page
-#save_and_open_page
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
@@ -58,7 +44,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
 end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
-  moviesList = Movie.order(sort_key)
+  moviesList = Movie.order(sort_by_key)
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
     step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
   end
