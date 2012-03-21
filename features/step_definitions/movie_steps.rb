@@ -7,7 +7,7 @@ Given /the following movies exist/ do |movies_table|
   # each returned element will be a hash whose key is the table header.
   # you should arrange to add that movie to the database here.
   movies_table.hashes.each do |movie|
-    if not Movie.find(movie[:title])
+    if not Movie.find_by_id(movie[:title])
 puts "zorra"
       assert false
       exit
