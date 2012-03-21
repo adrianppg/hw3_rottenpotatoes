@@ -6,7 +6,9 @@ Feature: display list of movies sorted by different criteria
 
 Background: movies have been added to database
   
-Given the following movies exist:
+Given I am on the RottenPotatoes home page
+And I check all ratings
+And the following movies exist:
   | title                   | rating | release_date |
   | Aladdin                 | G      | 25-Nov-1992  |
   | The Terminator          | R      | 26-Oct-1984  |
@@ -18,9 +20,6 @@ Given the following movies exist:
   | The Incredibles         | PG     | 5-Nov-2004   |
   | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
   | Chicken Run             | G      | 21-Jun-2000  |
-
- And I am on the RottenPotatoes home page
- And I check all ratings
 
 Scenario: sort movies alphabetically
 When I follow "title_header"
