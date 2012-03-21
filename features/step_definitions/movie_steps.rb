@@ -28,7 +28,7 @@ end
 When /I check all ratings/ do
 #step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
 #step %Q{I check the following ratings: PG, G}
-step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
+step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
