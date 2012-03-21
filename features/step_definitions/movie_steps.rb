@@ -19,6 +19,10 @@ When /I check all ratings/ do
   step %Q{I check the following ratings: #{Movie.all_ratings.join(" ")}}
 end
 
+When /I uncheck all ratings/ do
+  step %Q{I uncheck the following ratings: #{Movie.all_ratings.join(" ")}}
+end
+
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
@@ -68,4 +72,8 @@ When /^(?:|I )show all movies/ do
   step "I am on the RottenPotatoes home page"
   step "I check all ratings"
   step "I press \"ratings_submit\""
+end
+
+Then /^(?:|I )should see all movies rated as: (.*)/ do |rating_list|
+    Movies.where("'" + rating_list.join("' OR ratin­g ='") + "'")
 end
