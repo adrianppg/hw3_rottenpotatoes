@@ -51,7 +51,7 @@ Scenario: no ratings selected
 
 Scenario: all ratings selected
   # see assignment
-  When I check the following ratings: PG, G, R, PG-13
+  When I check the following ratings: PG G R PG-13
   And I press "ratings_submit" 
   Then I should see all of the movies
 
