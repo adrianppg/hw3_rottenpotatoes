@@ -29,5 +29,5 @@ When I follow "title_header"
 Then I should see movies sorted by "title"
 
 Scenario: sort movies in increasing order of release date
-When I follow "ratings_header"
+When I follow "release_date_header"
 Then I should see movies sorted by "title"
