@@ -22,14 +22,12 @@ Given the following movies exist:
   | The Incredibles         | PG     | 5-Nov-2004   |
   | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
   | Chicken Run             | G      | 21-Jun-2000  |
-And I am on the RottenPotatoes home page
+And I show all movies
 
 Scenario: sort movies alphabetically
-When I check all ratings
-And I press "ratings_submit"
-And I follow "title_header"
+When I follow "title_header"
 Then I should see movies sorted by "title"
 
 Scenario: sort movies in increasing order of release date
-  # your steps here
-
+When I follow "ratings_header"
+Then I should see movies sorted by "title"
