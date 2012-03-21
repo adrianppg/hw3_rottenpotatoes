@@ -77,3 +77,9 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 print page.html
 end
+
+When /^(?:|I )show all movies/ do
+  step "I am on the RottenPotatoes home page"
+  step "I check all ratings"
+  step "I press \"ratings_submit\""
+end/
