@@ -27,6 +27,7 @@ end
 
 When /I check all ratings/ do
 #step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
+puts page.content
   step %Q{I check the following ratings: PG, G}
 #step %Q{I check the following ratings: #{Movie.all_ratings}}
 end
