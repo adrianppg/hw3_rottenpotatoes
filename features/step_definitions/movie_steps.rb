@@ -35,6 +35,7 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
 #unchecked_string= uncheck? "un" : ""
 #step "I #{unchecked_string} check \"#{rating.strip}\" checkbox"
+    puts "I " + (uncheck== true ? "un" : "") + "check ratings\[#{rating.strip}\] checkbox"
     step "I " + (uncheck== true ? "un" : "") + "check ratings\[#{rating.strip}\] checkbox"
 
   end
