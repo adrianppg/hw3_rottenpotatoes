@@ -75,5 +75,6 @@ When /^(?:|I )show all movies/ do
 end
 
 Then /^(?:|I )should see all movies rated as: (.*)/ do |rating_list|
-    Movies.where("'" + rating_list.join("' OR ratin­g ='") + "'")
+    movies_from_db = Movies.where("'" + rating_list.join("' OR rating ='") + "'")
+
 end
