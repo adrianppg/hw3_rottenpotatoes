@@ -6,7 +6,6 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
 #   assert_not_nil Movie.find_by_title movie[:title]
 #page.has_content?(movie[:title])
-  print page.html
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
   end
@@ -28,7 +27,7 @@ end
 
 When /I check all ratings/ do
 #step %Q{I check the following ratings: #{Movie.all_ratings.join("\",\"")}}
-puts page.content
+puts page.html
   step %Q{I check the following ratings: PG, G}
 #step %Q{I check the following ratings: #{Movie.all_ratings}}
 end
