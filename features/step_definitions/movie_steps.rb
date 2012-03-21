@@ -82,4 +82,4 @@ When /^(?:|I )show all movies/ do
   step "I am on the RottenPotatoes home page"
   step "I check all ratings"
   step "I press \"ratings_submit\""
-end/
+end
