@@ -8,8 +8,7 @@ Given /the following movies exist/ do |movies_table|
   # you should arrange to add that movie to the database here.
   movies_table.hashes.each do |movie|
     if not Movie.find_by_id(movie[:title])
-puts "zorra"
-      assert false
+      assert false, %Q{Movie \"#{movie[:title]}\" not found}
       exit
     end
   end
