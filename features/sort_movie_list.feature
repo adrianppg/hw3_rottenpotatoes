@@ -6,11 +6,11 @@ Feature: display list of movies sorted by different criteria
 
 Background: movies have been added to database
   
-Given I show all movies
+#Given I show all movies
 #Given I am on the RottenPotatoes home page
 #And I check all ratings
 #And I press "ratings_submit"
-And the following movies exist:
+Given the following movies exist:
   | title                   | rating | release_date |
   | Aladdin                 | G      | 25-Nov-1992  |
   | The Terminator          | R      | 26-Oct-1984  |
@@ -22,10 +22,13 @@ And the following movies exist:
   | The Incredibles         | PG     | 5-Nov-2004   |
   | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
   | Chicken Run             | G      | 21-Jun-2000  |
+And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-When I follow "title_header"
-Then I should see movies sorted by "title" 
+When I check all ratings
+And I press "ratings_submit"
+And I follow "title_header"
+Then I should see movies sorted by "title"
 
 Scenario: sort movies in increasing order of release date
   # your steps here
