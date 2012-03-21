@@ -8,6 +8,7 @@ Background: movies have been added to database
   
 Given I am on the RottenPotatoes home page
 And I check all ratings
+And I press "ratings_submit"
 And the following movies exist:
   | title                   | rating | release_date |
   | Aladdin                 | G      | 25-Nov-1992  |
