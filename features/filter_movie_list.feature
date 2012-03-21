@@ -20,16 +20,45 @@ Background: movies have been added to database
   | Chicken Run             | G      | 21-Jun-2000  |
 
   And  I am on the RottenPotatoes home page
-  
-Scenario: restrict to movies with 'PG' or 'R' ratings
-When I uncheck all ratings
-And I check the following ratings: PG R
-And I press "ratings_submit"
-Then I should see all movies rated as: PG R
-And I should not see movies NOT rated as: PG R
+
+  Scenario: restrict to movies with 'PG' or 'R' ratings
+  # enter step(s) to check the 'PG' and 'R' checkboxes
+  When I check "ratings[PG]"
+  And I check "ratings[R]" 
+  # enter step(s) to uncheck all other checkboxes
+  And I uncheck "ratings[G]"
+  And I uncheck "ratings[PG-13]"
+  # enter step to "submit" the search form on the homepage
+  And I press "ratings_submit" 
+  # enter step(s) to ensure that PG and R movies are visible
+  Then I should see "The Incredibles"
+  And I should see "Raiders of the Lost Ark"
+  And I should see "The Terminator"
+  And I should see "When Harry Met Sally"
+  And I should see "Amelie"
+  # enter step(s) to ensure that other movies are not visible
+  And I should not see "Aladdin"
+  And I should not see "The Help"
+  And I should not see "Chocolat"
+  And I should not see "2001: A Space Odyssey"
+  And I should not see "Chicken Run"
 
 Scenario: no ratings selected
   # see assignment
+  When I uncheck the following ratings: PG, G, R, PG-13
+  And I press "ratings_submit" 
+  Then I should see no movies
 
 Scenario: all ratings selected
   # see assignment
+  When I check the following ratings: PG, G, R, PG-13
+  And I press "ratings_submit" 
+  Then I should see all of the movies
+
+  
+#Scenario: restrict to movies with 'PG' or 'R' ratings
+#When I uncheck all ratings
+#And I check the following ratings: PG R
+#And I press "ratings_submit"
+#Then I should see all movies rated as: PG R
+#And I should not see movies NOT rated as: PG R

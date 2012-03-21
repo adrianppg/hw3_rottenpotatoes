@@ -76,5 +76,4 @@ end
 
 Then /^(?:|I )should see all movies rated as: (.*)/ do |rating_list|
     movies_from_db = Movies.where("'" + rating_list.join("' OR rating ='") + "'")
-
 end
