@@ -75,5 +75,5 @@ end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
-print html.html
+print page.html
 end
