@@ -36,6 +36,7 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split.each do |rating| 
     step "I " + (uncheck== true ? "un" : "") + "check \"ratings_#{rating.strip}\" checkbox"
   end
+  print page.html
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
