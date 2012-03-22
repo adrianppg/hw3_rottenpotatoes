@@ -42,7 +42,7 @@ Then /I should see movies sorted by (.*)/ do |sort_by_key|
   puts Movie
   movidas = Movie.order(:title)
   movidas.each do |d|
-    puts d
+    puts d[:title]
   end
   puts Movie.find_all
   moviesList = Movie.find_all.order(sort_by_key)
