@@ -75,9 +75,9 @@ When /^(?:|I )show all movies/ do
   step "I press \"ratings_submit\""
 end
 
-Then /^(?:|I )should see all movies rated as: (.*)/ do |rating_list|
-    movies_from_db = Movies.where("'" + rating_list.join("' OR rating ='") + "'")
-end
+#Then /^(?:|I )should see all movies rated as: (.*)/ do |rating_list|
+#    movies_from_db = Movies.where("'" + rating_list.join("' OR rating ='") + "'")
+#end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
   if page.respond_to? :should
