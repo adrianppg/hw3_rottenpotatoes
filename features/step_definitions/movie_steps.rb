@@ -45,14 +45,15 @@ Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
   end
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
     print %Q{coooooooo #{x["title"]}\n}
-    print x[:title]
-    print sort_by_key
-    print sort_by_key.to_s.to_sym
-    print sort_by_key.to_sym
-    print x[sort_by_key.to_sym]
-    print x[sort_by_key.to_s]
-    print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
-    print %Q{I should see "#{x[sort_by_key]}" before "#{y[sort_by_key]}"}
+#    print x[:title]
+#    print sort_by_key
+#    print sort_by_key.to_s.to_sym
+#    print sort_by_key.to_sym
+#    print x[sort_by_key.to_sym]
+#    print x[sort_by_key.to_s]
+#    print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
+    print %Q{I should see #{x[sort_by_key.to_sym]} before #{y[sort_by_key.to_sym]}\n}
+#    print %Q{I should see "#{x[sort_by_key]}" before "#{y[sort_by_key]}"}
 #step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
     step %Q{I should see \"#{x[:title]}\" before \"#{y[:title]}\"}
   end
