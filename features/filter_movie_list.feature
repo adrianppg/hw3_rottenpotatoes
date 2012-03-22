@@ -18,7 +18,6 @@ Background: movies have been added to database
   | The Incredibles         | PG     | 5-Nov-2004   |
   | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
   | Chicken Run             | G      | 21-Jun-2000  |
-
   And  I am on the RottenPotatoes home page
 
   Scenario: restrict to movies with 'PG' or 'R' ratings
@@ -40,14 +39,12 @@ Background: movies have been added to database
   And I should not see "2001: A Space Odyssey"
   And I should not see "Chicken Run"
 
-Scenario: no ratings selected
-  # see assignment
+  Scenario: no ratings selected
   When I uncheck the following ratings: PG G R PG-13
   And I press "ratings_submit" 
   Then I should see no movies
 
-Scenario: all ratings selected
-  # see assignment
+  Scenario: all ratings selected
   When I check the following ratings: PG G R PG-13
   And I press "ratings_submit" 
   Then I should see all of the movies
