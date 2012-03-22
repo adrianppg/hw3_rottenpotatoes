@@ -27,3 +27,6 @@ Background: movies have been added to database
   Scenario: sort movies in increasing order of release date
   When I follow "release_date_header"
   Then I should see movies sorted by "release_date"
+
+  Scenario: do not sort movies and fail
+  Then I should see movies sorted by "title"
