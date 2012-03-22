@@ -29,4 +29,5 @@ Background: movies have been added to database
   Then I should see movies sorted by "release_date"
 
   Scenario: do not sort movies and fail
+  When I follow "release_date_header"
   Then I should see movies sorted by "title"
