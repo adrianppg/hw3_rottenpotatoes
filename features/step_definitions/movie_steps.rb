@@ -45,6 +45,7 @@ Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
   end
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
     print %Q{coooooooo #{x["title"]}\n}
+    print %Q{coooooooo #{x[sort_by_key]}\n}
 #    print x[:title]
 #    print sort_by_key
 #    print sort_by_key.to_s.to_sym
