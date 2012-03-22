@@ -16,7 +16,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   ee1 = Regexp.escape(e1)
   ee2 = Regexp.escape(e2)
   #debugger
-  assert page.body.scan(Regexp.new("#{ee1}.*#{ee2}", Regexp::MULTILINE)).size > 0 "Wrong order"
+  assert page.body.scan(Regexp.new("#{ee1}.*#{ee2}", Regexp::MULTILINE)).size > 0 , "Wrong order"
 
 end
 
