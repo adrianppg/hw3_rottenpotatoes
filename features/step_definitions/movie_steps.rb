@@ -16,7 +16,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   ee1 = Regexp.escape(e1)
   ee2 = Regexp.escape(e2)
   #debugger
-  assert page.body.scan(Regexp.new("#{ee1}.*#{ee2}", Regexp::MULTILINE)).size > 0
+  assert page.body.scan(Regexp.new("#{ee1}.*#{ee2}", Regexp::MULTILINE)).size > 0 "Wrong order"
 
 end
 
@@ -46,12 +46,12 @@ end
 Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
   moviesList = Movie.order(sort_by_key.to_sym)
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
-  title1 = x["title"]
-title2 = y["title"]
-print %Q{#{title1} #{title2}}
+#  title1 = x["title"]
+#title2 = y["title"]
+#print %Q{#{title1} #{title2}}
 #print %Q{I should see #{x[sort_by_key.to_sym]} before #{y[sort_by_key.to_sym]}\n}
     print %Q{I should see \"#{y[:title]}\" before \"#{x[:title]}\"}
-    print %Q{I should see \"#{title2}\" before \"#{title1}\"}
+   print %Q{I should see \"#{title2}\" before \"#{title1}\"}
     step %Q{I should see \"#{y[:title]}\" before \"#{x[:title]}\"}
   end
 end
