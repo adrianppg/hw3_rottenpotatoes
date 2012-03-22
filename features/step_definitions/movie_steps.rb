@@ -39,12 +39,14 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
 end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
+  puts sort_by_key.to_sym
+  puts sort_by_key
   moviesList = Movie.order(sort_by_key.to_sym)
 #moviesList.each do |movie|
 #    puts movie[:title]
 #  end
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
-   print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
+    print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
     step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
   end
 end
