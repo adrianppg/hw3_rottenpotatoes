@@ -40,7 +40,9 @@ end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
   moviesList = Movie.order(sort_by_key)
+  print moviesList.to_s
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
+    print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
     step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
   end
 end
