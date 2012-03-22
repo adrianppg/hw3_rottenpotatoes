@@ -12,7 +12,7 @@ end
 #   on the same page
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
-  page.body.match("#{Regexp.escape(e1)}.*#{Regexp.escape(e2)}")
+  assert page.body.match("#{Regexp.escape(e1)}.*#{Regexp.escape(e2)}")
 end
 
 When /I check all ratings/ do
