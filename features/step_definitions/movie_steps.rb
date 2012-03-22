@@ -98,7 +98,6 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
-#print page.html
   if page.respond_to? :should
     page.should have_no_content(text)
   else
