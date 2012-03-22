@@ -12,7 +12,7 @@ end
 #   on the same page
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
-  assert page.body.match("#{Regexp.escape(e1)}.*#{Regexp.escape(e2)}")
+  assert page.body.match("#{Regexp.escape(e1)}.*#{Regexp.escape(e2)}") , "Wrong order"
 end
 
 When /I check all ratings/ do
@@ -40,29 +40,8 @@ end
 
 Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
   moviesList = Movie.order(sort_by_key.to_sym)
-  moviesList.each do |movie|
-     puts movie[:title]
-  end
   moviesList[1..moviesList.length-1].zip(moviesList[0..moviesList.length-2]).each do |x, y|
-  movida = x[sort_by_key]
-  puts movida
-  movida = x[sort_by_key.to_s]
-  puts movida
-  movida = x[sort_by_key.to_sym]
-  puts movida
-    print %Q{coooooooo #{x["title"]}\n}
-    print %Q{coooooooo #{x[sort_by_key.to_s]}\n}
-    print %Q{coooooooo #{x[sort_by_key.to_sym]}\n}
-#    print x[:title]
-#    print sort_by_key
-#    print sort_by_key.to_s.to_sym
-#    print sort_by_key.to_sym
-#    print x[sort_by_key.to_sym]
-#    print x[sort_by_key.to_s]
-#    print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
-    print %Q{I should see #{x[sort_by_key.to_sym]} before #{y[sort_by_key.to_sym]}\n}
-#    print %Q{I should see "#{x[sort_by_key]}" before "#{y[sort_by_key]}"}
-#step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
+#print %Q{I should see #{x[sort_by_key.to_sym]} before #{y[sort_by_key.to_sym]}\n}
     step %Q{I should see \"#{x[:title]}\" before \"#{y[:title]}\"}
   end
 end
