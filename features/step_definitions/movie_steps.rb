@@ -54,7 +54,7 @@ Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
     print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
     print %Q{I should see "#{x[sort_by_key]}" before "#{y[sort_by_key]}"}
 #step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
-    step %Q{I should see "#{x[:title]}" before "#{y[:title]}"}
+    step %Q{I should see #{x[:title]} before #{y[:title]}}
   end
 end
 
