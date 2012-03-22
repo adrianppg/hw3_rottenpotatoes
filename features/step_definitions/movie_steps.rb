@@ -47,8 +47,10 @@ Then /^(?:|I )should see movies sorted by (.*)/ do |sort_by_key|
     print x["title"]
     print x[:title]
     print sort_by_key
+    print sort_by_key.to_s.to_sym
     print sort_by_key.to_sym
     print x[sort_by_key.to_sym]
+    print x[sort_by_key.to_s]
     print %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
     print %Q{I should see "#{x[sort_by_key]}" before "#{y[sort_by_key]}"}
     step %Q{I should see "#{x[sort_by_key.to_sym]}" before "#{y[sort_by_key.to_sym]}"}
