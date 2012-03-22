@@ -39,7 +39,7 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
 end
 
 Then /I should see movies sorted by (.*)/ do |sort_by_key|
-  moviesList = Movie.order(sort_by_key)
+  moviesList = Movies.order(sort_by_key)
   print moviesList.to_s
   print sort_by_key
   print sort_by_key.to_s
