@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
 
-#movida 
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
